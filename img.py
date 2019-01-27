@@ -4,7 +4,7 @@ import png
 import numpy as np
 
 # load image and delete alpha channel
-IMG = imageio.imread("DA_MAP.png")
+IMG = imageio.imread("campus.png")
 print IMG.shape
 IMG = np.delete(IMG,-1,axis=-1)
 print IMG.shape
@@ -27,7 +27,10 @@ def draw_line(x1,y1,x2,y2,r,g,b):
 	# straight line up and down
 	if x1 == x2:
 		for y in range(min(y1,y2), max(y1,y2)+1):
-			update_pixel(x1,y,r,g,b)
+			try:
+				update_pixel(x1,y,r,g,b)
+			except:
+				continue
 		return
 
 	# make it definitely go left to right
@@ -37,7 +40,10 @@ def draw_line(x1,y1,x2,y2,r,g,b):
 	slope = float(y2 - y1) / float(x2 - x1)
 	y = float(y1)
 	for x in range(x1, x2+1):
-		update_pixel(x,int(y),r,g,b)
+		try:
+			update_pixel(x1,y,r,g,b)
+		except:
+			continue
 		y += slope
 
 def main():
@@ -51,7 +57,7 @@ def main():
 		temp = map(int, temp)
 		args.append(temp)
 	for i in xrange(1, len(args)):
-		draw_line(args[i-1][1], args[i-1][0], args[i][1], args[i][0], 255, 0, 0)
+		draw_line(args[i-1][0], args[i-1][1], args[i][0], args[i][1], 255, 0, 0)
 	write_png()
 		
    
