@@ -4,7 +4,7 @@ import png
 import numpy as np
 
 # load image and delete alpha channel
-IMG = imageio.imread("DA_MAP.png")
+IMG = imageio.imread("campus.png")
 print IMG.shape
 IMG = np.delete(IMG,-1,axis=-1)
 print IMG.shape
