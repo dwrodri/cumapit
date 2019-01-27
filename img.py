@@ -32,18 +32,11 @@ def main():
 	for line in lines:
 		temp = line.strip().split(' ')
 		temp = map(int, temp)
-		args.append(temp)
-	for i in xrange(1, len(args)):
-		start_x = args[i-1][1]
-		end_x = args[i][1]
-		start_y = [i-1][0]
-		end_y = [i][0]
-		dx = abs(end_x - start_x)
-		dy = abs(end_y - start_y)
-		slope = dy/dx if dx != 0 else 0
-		for i in xrange(dx):
-			print start_y + int(i * slope), start_x +i
-			# update_pixel(start_y + int(i * slope), start_x +i, 0, 255, 255)
+		try:
+			update_pixel(temp[0], temp[1], 255, 0, 0)
+			print temp
+		except:
+			continue
 	write_png()
 		
    
