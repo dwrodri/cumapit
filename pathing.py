@@ -18,7 +18,7 @@ def main():
 	row_pad_dim = new_dim - len(occ_map[0])
 	col_pad_dim = new_dim - len(occ_map)
 	for row in occ_map:
-		occ_map.extend([1]*row_pad_dim)
+		row.extend([1]*row_pad_dim)
 	for i in xrange(col_pad_dim):
 		occ_map.append([1]*new_dim)
 	tree = LQTLD(occ_map, 1)
