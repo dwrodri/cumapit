@@ -6,7 +6,7 @@ import png
 import numpy as np
 
 # load image and delete alpha channel
-IMG = imageio.imread("small.png")
+IMG = imageio.imread("campus.png")
 
 MAX_ROWS = IMG.shape[1]
 MAX_COLS = IMG.shape[0]

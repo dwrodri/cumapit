@@ -33,3 +33,26 @@ Riggs West 1001 934 0
 Rhodes North_West 1021 1074 9
 Rhodes West 1084 1064 9
 Rhodes East 1133 1106 9
+Hallway 2 3
+Hallway 4 5
+Hallway 6 7
+Hallway 8 9
+Hallway 10 12
+Hallway 13 15
+Hallway 13 15
+Hallway 16 17
+Hallway 20 21
+Hallway 21 22
+Hallway 20 22
+Hallway 23 24
+Hallway 23 25
+Hallway 24 25
+Hallway 26 27
+Hallway 27 28
+Hallway 26 28
+Hallway 29 30
+Hallway 30 31
+Hallway 29 31
+Hallway 32 33
+Hallway 33 34
+Hallway 32 34
