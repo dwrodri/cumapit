@@ -35,13 +35,22 @@ def in_bounds(p):
 def distance(p1,p2):
 	return math.sqrt(((p2.x - p1.x) ** 2) + ((p2.y - p1.y) ** 2))
 
-def draw_circle(c,r):
+def draw_circle(c,r,d):
 	rad = float(r)
 	for i in range(c.y - r, c.y + r + 1):
 		for j in range(c.x - r, c.x + r + 1):
 			p = Point(j,i)
-			if in_bounds(p) and distance(p, c) <= rad:
-				update_pixel(p.y, p.x, 0, 255, 0, 255)
+			if in_bounds(p):
+				if distance(p, c) <= rad:
+					update_pixel(p.y, p.x, 0, 255, 0, 255)
+				if d == 3 and p.x > c.x and p.y > (c.y - (r/2)) and p.y < (c.y + (r/2)):
+					update_pixel(p.y, p.x, 0, 0, 255, 255)
+				elif d == 6 and p.y > c.y and p.x > (c.x - (r/2)) and p.x < (c.x + (r/2)):
+					update_pixel(p.y, p.x, 0, 0, 255, 255)
+				elif d == 9 and p.x < c.x and p.y > (c.y - (r/2)) and p.y < (c.y + (r/2)):
+					update_pixel(p.y, p.x, 0, 0, 255, 255)
+				elif d == 12 and p.y < c.y and p.x > (c.x - (r/2)) and p.x < (c.x + (r/2)):
+					update_pixel(p.y, p.x, 0, 0, 255, 255)
 
 def main():
 	global IMG
@@ -55,7 +64,7 @@ def main():
 	for line in sys.stdin:
 		splitLine = line.strip().split(' ')
 		point = Point(int(splitLine[3]), int(splitLine[2]))
-		draw_circle(point,10)
+		draw_circle(point,10,int(splitLine[4]))
 
 	write_png()
 
