@@ -94,6 +94,7 @@ class LQTLD:
                     break
             target_node = self.tree.pop(i)  # delete it
             if target_node[1] < self.r:
+                sys.stdout.write("%d / %d" % (target_node[1] , self.r))
                 children = self.divide(target_node)  # append its four children
                 for child in children:  # for each equal-sized neighbor of each child (that is not brother)
                     self.update_neighbors(child)  # corresponding level differences increased by 1
