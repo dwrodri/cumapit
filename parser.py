@@ -46,8 +46,3 @@ for way in xmlRoot.findall("./way"):
 
 		print("%d %d 0 255 255" % (nodePoint.lat * mapPixWidth, nodePoint.lon * mapPixHeight))
 	exit()
-
-
-
-
-
