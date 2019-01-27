@@ -1,4 +1,5 @@
 from quadtree import LQTLD
+from algos import a_star
 import imageio
 import png
 import math
@@ -23,7 +24,18 @@ def main():
 		occ_map.append([1]*new_dim)
 	tree = LQTLD(occ_map, 1)
 	tree.generate_debug_png('tree_debug.png')
+	args = []
+	with open("/dev/stdout") as file_handle:
+		args = file_handle.readlines()
+		args = map(int, map(split,args))
+	start_row, start_col = args[0]
+	end_row, end_col = args[1]		
+	start_index = tree.get_containing_cell_index(start_row, start_col)
+	end_index = tree.get_containing_cell_index(end_row, end_col)
+	path = a_star(start_index, end_index, tree)
+	
 	print occ_map.dtype
 	print occ_map[:100,:100]
+	
 if __name__ == "__main__":
 	main()
