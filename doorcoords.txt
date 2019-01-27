@@ -1,0 +1,58 @@
+Tillman Front 39.5 212.5 0
+Tillman South 61.5 199 0
+Martin_N North 178 372 0
+Martin_N South 215 371 9
+Martin_O North 215 371 9
+Martin_O South 255.5 374 9
+Martin_M North 255.5 374 9
+Martin_M South 297 378 9
+Kinard North 297 378 9
+Kinard South 322 372 9
+Daniel West 357 368 9
+Daniel South 368.5 397 12
+Daniel East 367 447 3
+McAdams East 499 502 0
+McAdams South 607 462 0
+McAdams West 549.5 444.5 0
+Ampitheater South 262 312 0
+Ampitheater North 207 324.5 0
+Library 4_West 379.5 293 0
+Library 4_East 381.5 309.5 0
+Watt North 453.5 251 0
+Watt East 504.5 242 0
+Watt South 519.5 234.5 0
+Brackett West 149 253.5 3
+Brackett South_East 179.5 290.5 3
+Brackett East 140.5 302 3
+Union East 110.5 140.5 3
+Union Plaza_North 92 120.5 3
+Union Plaza_South 117 117 3
+Riggs North 359 163.5 0
+Riggs East 375.5 189 0
+Riggs West 367.5 134 0
+Rhodes North_West 377.5 204 9
+Rhodes West 409 199 9
+Rhodes East 433.5 220 9
+Hallway 2 3
+Hallway 4 5
+Hallway 6 7
+Hallway 8 9
+Hallway 10 12
+Hallway 13 15
+Hallway 13 15
+Hallway 16 17
+Hallway 20 21
+Hallway 21 22
+Hallway 20 22
+Hallway 23 24
+Hallway 23 25
+Hallway 24 25
+Hallway 26 27
+Hallway 27 28
+Hallway 26 28
+Hallway 29 30
+Hallway 30 31
+Hallway 29 31
+Hallway 32 33
+Hallway 33 34
+Hallway 32 34
