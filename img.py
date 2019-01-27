@@ -22,6 +22,23 @@ def write_png():
 	w.write(file_handle, np.reshape(IMG, (IMG.shape[0], IMG.shape[1]*IMG.shape[2])))
 	file_handle.close()
 	
+def draw_line(x1,y1,x2,y2,r,g,b):
+
+	# straight line up and down
+	if x1 == x2:
+		for y in range(min(y1,y2), max(y1,y2)+1):
+			update_pixel(x1,y,r,g,b)
+		return
+
+	# make it definitely go left to right
+	if x1 > x2:
+		x1, x2 = x2, x1
+
+	slope = float(y2 - y1) / float(x2 - x1)
+	y = float(y1)
+	for x in range(x1, x2+1):
+		update_pixel(x,int(y),r,g,b)
+		y += slope
 
 def main():
 	global IMG
