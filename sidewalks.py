@@ -20,10 +20,9 @@ def update_pixel(row,col,r,g,b,a):
 	for i in xrange(len(temp)):
 		IMG[row,col,i] = temp[i]
 
-def write_png(wipe:bool):
+def write_png():
 	global IMG
-	if wipe:
-		wipe()
+	wipe()
 	file_handle = open('walks.png', 'wb')
 	w = png.Writer(IMG.shape[1], IMG.shape[0], alpha=True)
 	w.write(file_handle, np.reshape(IMG, (IMG.shape[0], IMG.shape[1]*IMG.shape[2])))
@@ -41,8 +40,12 @@ def wipe():
 	global IMG
 	for i in xrange(IMG.shape[0]):
 		for j in xrange(IMG.shape[1]):
-			if IMG[i][j][0] != 255:
-				IMG[i][j][3] = 0
+                    r,g,b = IMG[i,j,:-1]
+                    if r == 255 and b == 0 and g == 0:
+                        IMG[i][j][3] = 255
+                    else:
+                        IMG[i][j][3] = 0
+
 
 def main():
 	global IMG, MAX_ROWS, MAX_COLS
@@ -50,10 +53,10 @@ def main():
 		print "%d / %d" % (i,IMG.shape[0])
 		for j in xrange(IMG.shape[1]):
 			r,g,b,a  = IMG[i,j,:]
-			if max([r,g,b]) == r and r-b > 20:
+			if max([r,g,b]) == r and r-b > 20 and (r / (r+b+g) > 0.45):
 				if all([(m != n) for m, n in zip((255,0,0),(r,g,b))]): # if pix hasnt been touched by parser yet
 					expand_sidewalk_pixel(i,j,r,g,b,a)
-	write_png(wipe=True)
+	write_png()
 
 if __name__ == "__main__":
 	main()

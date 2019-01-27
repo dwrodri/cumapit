@@ -1,3 +1,6 @@
+# man I really don't like macs
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
