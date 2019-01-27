@@ -22,13 +22,13 @@ Point = namedtuple("Point",["lat","lon"])
 Bound = namedtuple("Bound",["min","max"])
 
 boundsTag = xmlRoot.findall("./bounds")[0]
-picBound = Bound( \
+mapCoordBounds = Bound( \
 	Point(float(boundsTag.attrib["minlat"]), float(boundsTag.attrib["minlon"])), \
 	Point(float(boundsTag.attrib["maxlat"]), float(boundsTag.attrib["maxlon"])) \
 )
-picDims = Point( \
-	picBound.max.lat - picBound.min.lat, \
-	picBound.max.lon - picBound.min.lon \
+mapCoordDims = Point( \
+	mapCoordBounds.max.lat - mapCoordBounds.min.lat, \
+	mapCoordBounds.max.lon - mapCoordBounds.min.lon \
 )
 
 # Iterate through every 'way' tag
@@ -40,11 +40,12 @@ for way in xmlRoot.findall("./way"):
 		id = nd.attrib["ref"]
 		node = xmlRoot.findall(".//*[@id='%s']" % id)[0]
 		nodePoint = Point( \
-			(float(node.attrib["lat"]) - picBound.min.lat) / picDims.lat, \
-			(float(node.attrib["lon"]) - picBound.min.lon) / picDims.lon \
+			(float(node.attrib["lat"]) - mapCoordBounds.min.lat) / mapCoordDims.lat, \
+			(float(node.attrib["lon"]) - mapCoordBounds.min.lon) / mapCoordDims.lon \
 		)
 
 		print("%d %d 0 255 255" % (nodePoint.lat * mapPixWidth, nodePoint.lon * mapPixHeight))
+	exit()
 
 
 
