@@ -15,13 +15,24 @@ def update_pixel(x,y,r,g,b):
     for i in xrange(len(temp)):
         IMG[x,y,i] = temp[i]
 
+def write_png():
+    global IMG
+    file_handle = open('output.png', 'wb')
+    w = png.Writer(7330, 2105)
+    w.write(file_handle, np.reshape(IMG, (IMG.shape[0], IMG.shape[1]*IMG.shape[2])))
+    file_handle.close()
+    
+
 def main():
     global IMG
     lines = []
     with open('/dev/stdin') as file_handle:
         lines = file_handle.readlines()
     for line in lines:
-        print line.strip()
+        temp = line.strip().split(' ')
+        temp = map(int, temp)
+        update_pixel(temp[0], temp[1], temp[2], temp[3])
+    write_png()
         
    
 if __name__ == "__main__":
