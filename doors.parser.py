@@ -16,14 +16,14 @@ IMG = imageio.imread(sys.argv[1])
 Point = namedtuple("Point",["x","y"])
 
 def update_pixel(row,col,r,g,b,a):
-	global BASE_IMG
+	global IMG
 	temp = [r,g,b,a]
 	for i in xrange(len(temp)):
 		IMG[row,col,i] = temp[i]
 
-def write_png():
+def write_png(fn):
 	global IMG
-	file_handle = open('doors.png', 'wb')
+	file_handle = open(fn, 'wb')
 	w = png.Writer(IMG.shape[1], IMG.shape[0], alpha=True)
 	w.write(file_handle, np.reshape(IMG, (IMG.shape[0], IMG.shape[1]*IMG.shape[2])))
 	file_handle.close()
@@ -63,17 +63,11 @@ def main():
 	# make all doors green
 	for line in sys.stdin:
 		splitLine = line.strip().split(' ')
+		if splitLine[0] == "Hallway":
+			continue
 		point = Point(int(splitLine[3]), int(splitLine[2]))
 		draw_circle(point,10,int(splitLine[4]))
+	write_png("doors.png")
 
-	write_png()
-
-'''
-	for i in xrange(len(IMG.shape[0])):
-		for j in xrange(len(IMG.shape[1])):
-			r,g,b,a = IMG[i,j,:]
-			expand_sidewalk_pixel(i,j,r,g,b,a)
-	write_png()
-'''
 
 main()
