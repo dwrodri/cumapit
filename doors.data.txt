@@ -27,3 +27,9 @@ Brackett East 547 1270 3
 Union East 487 947 3
 Union Plaza_North 450 907 3
 Union Plaza_South 500 900 3
+Riggs North 984 993 0
+Riggs East 1017 1044 0
+Riggs West 1001 934 0
+Rhodes North_West 1021 1074 9
+Rhodes West 1084 1064 9
+Rhodes East 1133 1106 9
